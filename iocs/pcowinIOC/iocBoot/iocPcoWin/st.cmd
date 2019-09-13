@@ -8,7 +8,8 @@ pcowinApp_registerRecordDeviceDriver(pdbbase)
 epicsEnvSet("PREFIX", "XF05IDD-ES{PCO:1}:")
 
 # The port name for the detector
-epicsEnvSet("PORT",   "PCO1")
+#epicsEnvSet("PORT",   "PCO1")
+epicsEnvSet("PORT",   "Camera1")
 # Larger queue size may be need to stream to disk at full camera speed, up tp 2000
 epicsEnvSet("QSIZE",  "20")   
 # The maximim image width; used for row profiles in the NDPluginStats plugin
@@ -25,7 +26,8 @@ epicsEnvSet("EPICS_DB_INCLUDE_PATH", "$(ADCORE)/db")
 epicsEnvSet("NELEMENTS", "11059200")
 
 # pcoConfig(const char* portName, int maxBuffers, size_t maxMemory)
-pcoConfig("$(PORT)", 0, 0, 8)
+#pcoConfig("$(PORT)", -1, -1, 8)
+pcoConfig("$(PORT)", -1, -1, 8)
 
 # pcoApiConfig(const char* portName)
 pcoApiConfig("$(PORT)")
